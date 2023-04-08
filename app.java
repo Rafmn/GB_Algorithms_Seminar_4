@@ -28,17 +28,13 @@ public class app {
 
   static Node treeBuild(int[] arr) { 
     Node node = null;
-    int n = arr.length;
+    int n = arr.length; 
     if (n == 0)
       return node;
     else {
       node = new Node(arr[0]);
-
-      if (n == 1) {node.left = treeBuild(new int[] {});}
-      else {node.left = treeBuild(Arrays.copyOfRange(arr, 1, n/2 + 1));}
-      
-      if (n == 2) {node.right = treeBuild(new int[] {});}
-      else {node.right = treeBuild(Arrays.copyOfRange(arr, n/2 + 1, n));}
+      node.left = treeBuild(Arrays.copyOfRange(arr, 1, n/2 + 1));
+      node.right = treeBuild(Arrays.copyOfRange(arr, n/2 + 1, n));
     }
     return node;
   }
